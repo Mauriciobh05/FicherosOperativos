@@ -57,3 +57,13 @@ int main() {
     closedir(d);
     return 0; // se finaliza el programa 
 }
+
+/********************************************************************************************
+ * Conclusión:
+ * Este programa permitió comprender el manejo básico de directorios en lenguaje C mediante
+ * las funciones del sistema opendir(), readdir() y stat(). A través de su ejecución,
+ * se logró recorrer un directorio e imprimir el nombre y tamaño de cada archivo regular.
+ * 
+ * Este laboratorio refuerza
+ * los conocimientos sobre cómo interactúa un programa con el sistema de archivos 
+ ********************************************************************************************/
