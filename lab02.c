@@ -76,3 +76,12 @@ int main() {
     closedir(d); // Se cierra el directorio que esta abierto y se libera memoria o recursos 
     return 0; // finaliza el programa de 
 }
+
+/*------------------------------------------------------------------------------------------
+ * Conclusión:
+ * Este laboratorio profundiza en el uso de la estructura stat y las funciones del sistema
+ * para obtener metadatos de archivos. Además de identificar los nombres de los ficheros,
+ * el programa permite conocer sus permisos, tipo archivo o directorio y fecha de última
+ * modificación, determinando si han sido editados recientemente.
+ * 
+ *------------------------------------------------------------------------------------------*/
