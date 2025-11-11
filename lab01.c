@@ -18,39 +18,39 @@
 
 
 int main() {
-    DIR *d;
-    char nomdir[90], nomfich[90];
-    struct stat datos;
-    struct dirent *direc;
+    DIR *d;  // Se crea un puntero al directorio (tipo DIR)
+    char nomdir[90], nomfich[90]; // Se crean arreglos para guardar el nombre del directorio y de cada archivo
+    struct stat datos; // Se crea una estructura donde se guarda la información de cada archivo
+    struct dirent *direc; // Se crea un puntero a estructura que representa una entrada del directorio
 
     // Solicitar el nombre del directorio
     printf("Introduzca el nombre de un directorio: ");
-    fgets(nomdir, sizeof(nomdir), stdin);
+    fgets(nomdir, sizeof(nomdir), stdin); // Se lee el nombre del directorio desde teclado
 
     // Eliminar el salto de línea del final
     nomdir[strlen(nomdir) - 1] = '\0';
 
     // Abrir el directorio
-    if ((d = opendir(nomdir)) == NULL) {
+    if ((d = opendir(nomdir)) == NULL) { // Si no se puede abrir el directorio devuelve null 
         printf("El directorio no existe o no se puede abrir.\n");
-        return -1;
+        return -1; // Se termina el programa con error 
     }
 
     // Leer los archivos del directorio
-    while ((direc = readdir(d)) != NULL) {
-        strcpy(nomfich, nomdir);
-        strcat(nomfich, "/");
-        strcat(nomfich, direc->d_name);
+    while ((direc = readdir(d)) != NULL) { // Si hay archivos como entrada 
+        strcpy(nomfich, nomdir); // Copia el nombre del directorio
+        strcat(nomfich, "/"); // Agrega una barra para formar la ruta
+        strcat(nomfich, direc->d_name); // Añade el nombre del archivo actual
 
         // Obtener información del archivo
-        if (stat(nomfich, &datos) == 0) {
+        if (stat(nomfich, &datos) == 0) { // se confirma que el stat sea 0 para y asi se sabe que la información es valida
             if (S_ISREG(datos.st_mode)) { // Solo mostrar archivos regulares
-                printf("Nombre: %-30s\t Tamaño: %ld bytes\n", direc->d_name, datos.st_size);
+                printf("Nombre: %-30s\t Tamaño: %ld bytes\n", direc->d_name, datos.st_size); // Se imprime el nombre y el tamaño en bytes del archivo 
             }
         }
     }
 
-    // Cerrar el directorio
+    // Se cierra el directorio para liberar memoria 
     closedir(d);
-    return 0;
+    return 0; // se finaliza el programa 
 }
