@@ -56,23 +56,23 @@ int main() {
 
             printf("Modo: %lo\n", (unsigned long)atr.st_mode);  // Se muestra los permisos y tipo de archivo en formato ls -l
             if ((atr.st_mode & 0400) != 0) // // Se verifica si el propietario tiene permiso de lectura
-                printf("→ Permiso R para propietario\n");
+                printf("Permiso R para propietario\n"); 
             else
-                printf("→ No permiso R para propietario\n");
+                printf(" No permiso R para propietario\n");
 
-            if (S_ISDIR(atr.st_mode))
-                printf("→ Es un directorio\n");
-            if (S_ISREG(atr.st_mode))
-                printf("→ Es un fichero regular\n");
+            if (S_ISDIR(atr.st_mode))  // Se determina si la entrada es un directorio
+                printf(" Es un directorio\n");
+            if (S_ISREG(atr.st_mode)) // Se determina si la entrada es un archivo regular
+                printf(" Es un fichero regular\n");
 
             // Archivos modificados en los últimos 10 días
             if ((fecha - 10 * 24 * 60 * 60) < atr.st_mtime) {
-                printf("→ Modificado en los últimos 10 días\n");
-                printf("   Fecha de acceso: %s", ctime(&atr.st_mtime));
+                printf("Modificado en los últimos 10 días\n");  // Se muestra la fecha y hora exacta de la última modificación
+                printf("  Fecha de acceso: %s", ctime(&atr.st_mtime));
             }
         }
     }
 
-    closedir(d);
-    return 0;
+    closedir(d); // Se cierra el directorio que esta abierto y se libera memoria o recursos 
+    return 0; // finaliza el programa de 
 }
