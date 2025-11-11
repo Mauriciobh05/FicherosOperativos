@@ -9,15 +9,15 @@
  *              de archivos y obtener información detallada de cada fichero.
  ********************************************************************************************/
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sys/mman.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include <sys/types.h> // Interfaz que define los tipos de datos usados por el sistema. 
+#include <sys/stat.h> // Interfaz que permite obtener información de archivos, stat 
+#include <sys/mman.h> // Interfaz para manejo de memoria
+#include <fcntl.h>   // Interfaz que proporciona constantes para abrir archivos
+#include <stdio.h> // Interfaz estándar de entrada/salida
 #include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <dirent.h>
+#include <stdlib.h> // Interfaz estándar como por ejemplo malloc
+#include <string.h> // Interfaz que ayuda al manejo de las cadenas 
+#include <dirent.h> // Interfaz que ayuda a la manipulación de directorios, opendir 
 
 
 int main() {
