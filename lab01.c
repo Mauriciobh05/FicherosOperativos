@@ -2,8 +2,11 @@
  * Pontificia Universidad Javeriana
  * Autor: Mauricio Beltrán Huertas
  * Fecha: 11 noviembre 2025
- * Descripción: Programa en C que lee de teclado el nombre de un directorio y muestra        *
- *              en pantalla el nombre y tamaño de los ficheros que contiene.
+ * Descripción: Programa en C que solicita al usuario el nombre de un directorio y muestra 
+ *              en pantalla los nombres y tamaños en bytes de todos los archivos regulares
+ *              contenidos en dicho directorio o archivo . 
+ *              Utiliza las funciones opendir(), readdir() y stat() para recorrer el sistema
+ *              de archivos y obtener información detallada de cada fichero.
  ********************************************************************************************/
 
 #include <sys/types.h>
