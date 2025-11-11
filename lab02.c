@@ -2,8 +2,13 @@
  * Pontificia Universidad Javeriana
  * Autor: Mauricio Beltrán Huertas
  * Fecha: 11 noviembre 2025
- * Descripción: Programa que pide el nombre de un directorio y muestra información sobre
- *              sus ficheros: tipo, permisos y fecha de modificación reciente.
+ * Descripción: Programa en C que solicita el nombre de un directorio o archivo y analiza cada elemento
+ *              que contiene, mostrando su tipo, permisos del 
+ *              propietario y fecha de última modificación. 
+ *              Emplea las funciones opendir(), readdir() y stat() para acceder a los 
+ *              atributos de cada archivo, junto con estructuras del sistema como struct stat 
+ *              y struct dirent. Además, determina si los archivos han sido modificados en los 
+ *              últimos diez días utilizando operaciones con time_t.
  ********************************************************************************************/
 
 #include <stdio.h>
